@@ -9,7 +9,7 @@ public class ObjectCloning {
     public static final String GAMMA = "Gamma";
 
     static class A implements Cloneable {
-        String string = "Alfa";
+        String string;
 
         public A(String string) {
             this.string = string;
