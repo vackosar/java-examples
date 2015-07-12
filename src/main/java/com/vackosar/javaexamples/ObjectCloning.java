@@ -24,8 +24,12 @@ public class ObjectCloning {
         }
 
         @Override
-        public A clone() throws CloneNotSupportedException {
-            return (A) super.clone();
+        public A clone() {
+            try {
+                return (A) super.clone();
+            } catch (CloneNotSupportedException e) {
+                throw new RuntimeException(e);
+            }
         }
 
         @Override
@@ -37,7 +41,7 @@ public class ObjectCloning {
     }
 
     @Test
-    public void cloneShouldHaveSameValues () throws CloneNotSupportedException {
+    public void cloneShouldHaveSameValues () {
         A beta = new A(BETA);
         A clone = beta.clone();
         assertSame(BETA, beta.getString());
